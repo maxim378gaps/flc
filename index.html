@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinFlip</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="stars-container"></div>
+
+    <!-- Всплывающее окно с просьбой прочитать инструкцию -->
+    <div class="alert" id="alert">
+        <div class="alert-content">
+            <p>Пожалуйста, прочитайте инструкцию перед началом!</p>
+        </div>
+    </div>
+
+    <!-- Уведомление о новой сессии -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <p id="notification-text">Начать новую сессию?</p>
+            <div class="notification-buttons">
+                <button id="start-new-session">Начать</button>
+                <button id="cancel-new-session">МЕНЮ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно инструкции -->
+    <div class="modal" id="instruction-modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2 id="instruction-title">📖 Инструкция</h2>
+            <p id="instruction-text"></p>
+        </div>
+    </div>
+
+    <!-- Заголовок -->
+    <h1 class="title">
+        <span class="coin-text">Coin</span>
+        <span class="flip-text">Flip</span>
+    </h1>
+
+    <!-- Переключатель языков -->
+    <div class="language-switcher">
+        <button id="language-button" onclick="toggleLanguageDropdown()">
+            <img id="flag-icon" src="https://flagcdn.com/ru.svg" alt="Russian Flag">
+            <span id="language-text">RU ▼</span>
+        </button>
+        <div class="dropdown" id="language-dropdown">
+            <button onclick="setLanguage('ru')">
+                <img src="https://flagcdn.com/ru.svg" alt="Russian Flag">
+                RU
+            </button>
+            <button onclick="setLanguage('en')">
+                <img src="https://flagcdn.com/us.svg" alt="USA Flag">
+                EN
+            </button>
+            <button onclick="setLanguage('in')">
+                <img src="https://flagcdn.com/in.svg" alt="Indian Flag">
+                IN
+            </button>
+        </div>
+    </div>
+
+    <!-- Шапка с историей -->
+    <div class="history-panel">
+        <div class="history-container" id="history-container">
+            <!-- 7 кружков для истории -->
+            <div class="history-circle"></div>
+            <div class="history-circle"></div>
+            <div class="history-circle"></div>
+            <div class="history-circle"></div>
+            <div class="history-circle"></div>
+            <div class="history-circle"></div>
+            <div class="history-circle"></div>
+        </div>
+    </div>
+
+    <!-- Игровая панель -->
+    <div class="game-panel">
+        <!-- Сканер -->
+        <div class="scanner" id="scanner">
+            <div class="scan-line"></div>
+            <div class="scan-text" id="scan-text">Нажмите кнопку СИГНАЛ</div>
+        </div>
+
+        <!-- Результат -->
+        <div class="result" id="result">
+            <div class="outcome" id="outcome"></div>
+            <div class="probability" id="probability"></div>
+        </div>
+    </div>
+
+    <!-- Статус-бар -->
+    <div class="status-bar">
+        <button class="signal-button" id="signal-button" onclick="startScanner()">
+            <span data-key="get_signal">СИГНАЛ</span>
+            <div class="timer-fill" id="timer-fill"></div>
+        </button>
+        <button class="menu-button" onclick="window.location.href='menu.html'">
+            <span data-key="menu">МЕНЮ</span>
+        </button>
+    </div>
+
+    <!-- Кнопка "Инструкция" -->
+    <button class="instruction-button" id="instruction-button">
+        <span data-key="instruction">📖 Инструкция</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
